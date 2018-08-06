@@ -41,7 +41,7 @@ public class PropertyController {
     }
 
     @RequestMapping("admin_property_add")
-    public String add(Model model, Property property) {
+    public String add(Property property) {
         propertyService.add(property);
         return "redirect:/admin_property_list?cid="+property.getCid();
     }

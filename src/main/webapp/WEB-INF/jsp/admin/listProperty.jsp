@@ -61,7 +61,7 @@
             <form method="post" id="addForm" action="admin_property_add">
                 <table class="addTable">
                     <tr>
-                        <td><label for="name">属性名词</label><input id="name" name="name" type="text" class="form-control"></td>
+                        <td><label for="name">属性名称</label><input id="name" name="name" type="text" class="form-control"></td>
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">

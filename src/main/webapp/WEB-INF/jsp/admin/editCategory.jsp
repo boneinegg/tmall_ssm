@@ -35,12 +35,10 @@
             <form method="post" id="editForm" action="admin_category_update" enctype="multipart/form-data">
                 <table class="editTable">
                     <tr>
-                        <td>分类名称</td>
-                        <td><input id="name" name="name" value="${c.name}" type="text" class="form-control"></td>
+                        <td><label for="name">分类名称</label><input id="name" name="name" value="${c.name}" type="text" class="form-control"></td>
                     </tr>
                     <tr>
-                        <td>分类图片</td>
-                        <td><input id="categoryPic" accept="image/*" type="file" name="image"></td>
+                        <td><label for="categoryPic">分类图片</label> <input id="categoryPic" accept="image/*" type="file" name="image"></td>
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" aligen="center">
