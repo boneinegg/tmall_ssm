@@ -27,9 +27,10 @@ public class PropertyController {
     public String list(Model model, Page page, int cid) {
         Category category = categoryService.get(cid);
         PageHelper.offsetPage(page.getStart(), page.getCount());
-        List<Property>  propertyList = propertyService.list(cid);
+        List propertyList = propertyService.list(cid);
 
-        int total = (int) new PageInfo<>(propertyList).getTotal();
+        int total;
+        total = (int) new PageInfo<>(propertyList).getTotal();
         page.setTotal(total);
         page.setParam("&cid=" + category.getId());
 
@@ -58,9 +59,9 @@ public class PropertyController {
         model.addAttribute("p", p);
         return "admin/editProperty";
     }
-    @RequestMapping("admin_porperty_update")
-    public String update(Model model, Property property) {
+    @RequestMapping("admin_property_update")
+    public String update(Property property) {
         propertyService.update(property);
-        return "redirect:/"
+        return "redirect:/admin_property_list?cid="+property.getCid();
     }
 }
