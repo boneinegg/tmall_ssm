@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("/")
 public class PropertyController {
     @Autowired
     PropertyService propertyService;
@@ -57,6 +57,7 @@ public class PropertyController {
         Category c = categoryService.get(p.getCid());
         p.setCategory(c);
         model.addAttribute("p", p);
+        model.addAttribute("c", c);
         return "admin/editProperty";
     }
     @RequestMapping("admin_property_update")

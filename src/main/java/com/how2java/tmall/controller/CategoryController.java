@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("/")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;

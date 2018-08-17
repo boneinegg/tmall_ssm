@@ -13,15 +13,15 @@
 
 <title>编辑分类</title>
 
-<script>
-    $(function() {
-        $("#editForm").submit(function () {
-            if (!checkEmpty("name", "分类名称"))
-                return false;
-            return true;
-        });
-    });
-</script>
+<%--<script>--%>
+    <%--$(function() {--%>
+        <%--$("#editForm").submit(function () {--%>
+            <%--if (!checkEmpty("name", "分类名称"))--%>
+                <%--return false;--%>
+            <%--return true;--%>
+        <%--});--%>
+    <%--});--%>
+<%--</script>--%>
 
 <div class="workingArea">
     <ol class="breadcrumb">
@@ -35,10 +35,14 @@
             <form method="post" id="editForm" action="admin_category_update" enctype="multipart/form-data">
                 <table class="editTable">
                     <tr>
-                        <td><label for="name">分类名称</label><input id="name" name="name" value="${c.name}" type="text" class="form-control"></td>
+                        <td><label for="name">分类名称</label>
+                            <input id="name" name="name" value="${c.name}" required="required" type="text" class="form-control">
+                        </td>
                     </tr>
                     <tr>
-                        <td><label for="categoryPic">分类图片</label> <input id="categoryPic" accept="image/*" type="file" name="image"></td>
+                        <td><label for="categoryPic">分类图片</label>
+                            <input id="categoryPic" accept="image/*" required="required" type="file" name="image">
+                        </td>
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" aligen="center">

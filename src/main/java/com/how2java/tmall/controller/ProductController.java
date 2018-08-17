@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("/")
 public class ProductController {
     @Autowired
     ProductService productService;
@@ -51,13 +51,13 @@ public class ProductController {
     @RequestMapping("admin_product_add")
     public String add(Product product, HttpSession httpSession, UploadedImageFile uploadedImageFile) throws IOException {
         productService.add(product);
-        File imageFolder = new File(httpSession.getServletContext().getRealPath("img/product"));
-        File file = new File(imageFolder, product.getId() + ".jpg");
-        if (!file.getParentFile().exists())
-            file.getParentFile().mkdirs();
-        uploadedImageFile.getImage().transferTo(file);
-        BufferedImage img = ImageUtil.change2jpg(file);
-        ImageIO.write(img, "jpg", file);
+//        File imageFolder = new File(httpSession.getServletContext().getRealPath("img/product"));
+//        File file = new File(imageFolder, product.getId() + ".jpg");
+//        if (!file.getParentFile().exists())
+//            file.getParentFile().mkdirs();
+//        uploadedImageFile.getImage().transferTo(file);
+//        BufferedImage img = ImageUtil.change2jpg(file);
+//        ImageIO.write(img, "jpg", file);
 
         return "redirect:/admin_product_list?cid=" + product.getCid();
     }
@@ -80,6 +80,7 @@ public class ProductController {
         Category category = categoryService.get(product.getCid());
         product.setCategory(category);
         model.addAttribute("product", product);
+        model.addAttribute("category", category);
 
         return "admin/editProduct";
     }
@@ -88,16 +89,16 @@ public class ProductController {
     public String update(Product product, HttpSession httpSession, UploadedImageFile uploadedImageFile) throws IOException {
         productService.update(product);
 
-        MultipartFile image = uploadedImageFile.getImage();
-        if (image != null && !image.isEmpty()) {
-            File imageFolder = new File(httpSession.getServletContext().getRealPath("img/product"));
-            File file = new File(imageFolder, product.getId()+".jsp");
-            if (!file.getParentFile().exists())
-                file.getParentFile().mkdirs();
-            uploadedImageFile.getImage().transferTo(file);
-            BufferedImage img = ImageUtil.change2jpg(file);
-            ImageIO.write(img, "jpg", file);
-        }
+//        MultipartFile image = uploadedImageFile.getImage();
+//        if (image != null && !image.isEmpty()) {
+//            File imageFolder = new File(httpSession.getServletContext().getRealPath("img/product"));
+//            File file = new File(imageFolder, product.getId()+".jsp");
+//            if (!file.getParentFile().exists())
+//                file.getParentFile().mkdirs();
+//            uploadedImageFile.getImage().transferTo(file);
+//            BufferedImage img = ImageUtil.change2jpg(file);
+//            ImageIO.write(img, "jpg", file);
+//        }
 
         return "redirect:/admin_product_list?cid=" + product.getCid();
     }

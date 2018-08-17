@@ -15,7 +15,7 @@
 
 <div class="workingArea">
     <ol class="breadcrumb">
-        <li><a href="admin_property_list">所有属性</a> </li>
+        <li><a href="admin_property_list?cid=${c.id}">${c.name}</a></li>
         <li class="active">编辑属性</li>
     </ol>
     <div class="panel panel-warning editDiv">
@@ -24,7 +24,9 @@
             <form method="post" id="editForm" action="admin_property_update" enctype="multipart/form-data">
                 <table class="editTable">
                     <tr>
-                        <td><label for="name">属性名称</label><input id="name" name="name" value="${p.name}" type="text" class="form-control"></td>
+                        <td><label for="name">属性名称</label>
+                            <input id="name" name="name" value="${p.name}" required="required" type="text" class="form-control">
+                        </td>
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">

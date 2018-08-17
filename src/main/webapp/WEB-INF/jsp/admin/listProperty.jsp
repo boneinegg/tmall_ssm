@@ -13,14 +13,14 @@
 
 <title>属性管理</title>
 
-<script>
-    $(function () {
-        $("#addForm").submit(function () {
-            return checkEmpty("name", "属性名称");
-        })
-        
-    })
-</script>
+<%--<script>--%>
+    <%--$(function () {--%>
+        <%--$("#addForm").submit(function () {--%>
+            <%--return checkEmpty("name", "属性名称");--%>
+        <%--})--%>
+        <%----%>
+    <%--})--%>
+<%--</script>--%>
 
 <div class="workingArea">
     <ol class="breadcrumb">
@@ -61,7 +61,9 @@
             <form method="post" id="addForm" action="admin_property_add">
                 <table class="addTable">
                     <tr>
-                        <td><label for="name">属性名称</label><input id="name" name="name" type="text" class="form-control"></td>
+                        <td><label for="name">属性名称</label>
+                            <input id="name" name="name" type="text" required="required" class="form-control">
+                        </td>
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">

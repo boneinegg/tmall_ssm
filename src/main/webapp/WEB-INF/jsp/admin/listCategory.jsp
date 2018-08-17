@@ -29,6 +29,7 @@
 
 <div class="workingArea">
     <h1 class="label label-info" >分类管理</h1>
+    <a id="add_category" href="#" class="label label-success" >添加分类</a>
     <br>
     <br>
 
@@ -68,30 +69,78 @@
         <%@include file="../include/admin/adminPage.jsp" %>
     </div>
 
-    <div class="panel panel-warning addDiv">
-        <div class="panel-heading">新增分类</div>
-        <div class="panel-body">
-            <form method="post" id="addForm" action="admin_category_add" enctype="multipart/form-data">
-                <table class="addTable">
-                    <tr>
-                        <td><label for="name">分类名称</label> <input  id="name" name="name" type="text" class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="categoryPic">分类图片</label>
-                            <input id="categoryPic" accept="image/*" type="file" name="image" />
-                        </td>
-                    </tr>
-                    <tr class="submitTR">
-                        <td colspan="2" align="center">
-                            <button type="submit" class="btn btn-success">提 交</button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+    <div class="modal" id="add_category_dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-label="close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                    <h4 class="modal-title">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="addForm" action="admin_category_add" enctype="multipart/form-data">
+                        <table class="addTable">
+                            <tr>
+                                <td><label for="name">分类名称</label>
+                                    <input  id="name" name="name" type="text" required="required" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="categoryPic">分类图片</label>
+                                    <input id="categoryPic" accept="image/*" required="required" type="file" name="image" />
+                                </td>
+                            </tr>
+                            <tr class="submitTR">
+                                <td colspan="2" align="center">
+                                    <button type="submit" class="btn btn-success">提 交</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+
+    <%--<div class="panel panel-warning addDiv">--%>
+        <%--<div class="panel-heading">新增分类</div>--%>
+        <%--<div class="panel-body">--%>
+            <%--<form method="post" id="addForm" action="admin_category_add" enctype="multipart/form-data">--%>
+                <%--<table class="addTable">--%>
+                    <%--<tr>--%>
+                        <%--<td><label for="name">分类名称</label>--%>
+                            <%--<input  id="name" name="name" type="text" required="required" class="form-control">--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--<label for="categoryPic">分类图片</label>--%>
+                            <%--<input id="categoryPic" accept="image/*" required="required" type="file" name="image" />--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr class="submitTR">--%>
+                        <%--<td colspan="2" align="center">--%>
+                            <%--<button type="submit" class="btn btn-success">提 交</button>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                <%--</table>--%>
+            <%--</form>--%>
+        <%--</div>--%>
+    <%--</div>--%>
 
 </div>
 
 <%@include file="../include/admin/adminFooter.jsp"%>
+
+<script>
+    $("#add_category").click(function () {
+        // var draftid = this.id.split("-")[1];
+        // $("#edit_id").val(draftid);
+        // $("#edit_name").val($("#name_"+draftid).text());
+        // $("#edit_description").val($("#description_"+draftid).text());
+        // $("#edit_draft_form label.error").remove();
+        $("#add_category_dialog").modal("show");
+    });
+</script>
